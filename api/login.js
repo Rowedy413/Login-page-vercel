@@ -1,20 +1,21 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const path = require('path');
+
 const app = express();
 
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(express.static(path.join(__dirname, '../public'))); // public folder serve
+app.use(express.static(path.join(__dirname, '../public')));
 
-const USERNAME = "admin";  // Change as needed
-const PASSWORD = "1234";   // Change as needed
+const USERNAME = "admin";  // change as needed
+const PASSWORD = "1234";   // change as needed
 
-// Login form route
+// Home → Login page
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, '../public/login.html'));
 });
 
-// Login POST route
+// Handle login
 app.post('/login', (req, res) => {
   const { username, password } = req.body;
 
