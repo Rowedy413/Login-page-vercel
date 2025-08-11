@@ -12,7 +12,7 @@ app.post('/login', (req, res) => {
 
   if (username === USERNAME && password === PASSWORD) {
     // Serve your protected page HTML
-    res.sendFile(__dirname + 'public/index.html');
+    res.sendFile(__dirname +'public/index.html');
   } else {
     res.send(`
       <h1 style="color:red;text-align:center;">Invalid Credentials</h1>
